@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List Event Listener Example</title>
+</head>
+<body>
+	 <h1>List example</h1>
+    <ul>
+      <li>Summer season</li>
+      <li>Rainy season</li>
+      <li>winter season</li>
+    </ul>
+
+	<script>
+  const list = document.querySelector('#myList');
+
+  list.addEventListener('click', function(event) {
+    const target = event.target;
+    if (target.tagName === 'LI') {
+      console.log(`You clicked on ${target.textContent}`);
+    }
+  });
+</script>
+</body>
+</html>
