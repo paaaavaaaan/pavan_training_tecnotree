@@ -1,0 +1,5 @@
+Name = input("Enter your name : ")
+#print(Name)
+Age = int(input("Enter age :"))
+#print(Age)
+print("After 10 years the age will be ",Age+10)
