@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e5bcbc;
+      }
+
+      .login-container {
+        margin: 100px auto;
+        width: 300px;
+        padding: 20px;
+        border: 1px solid #252222;
+        background-color: #96bd9d;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #6bcae0;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #af4ca8;
+        color: rgb(245, 235, 235);
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:hover {
+        background-color: #bfed6f;
+      }
+
+      .forgot-password {
+        text-align: right;
+        font-size: 12px;
+        color: #888;
+        margin-top: 8px;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" id="login-button" disabled>Login</button>
+
+        <div class="forgot-password">
+          <a href="#" onclick="resetPassword()">Forgot Password?</a>
+        </div>
+
+        <div id="error-message"></div>
+      </form>
+    </div>
+
+    <script>
+      const usernameInput = document.getElementById("username");
+      const passwordInput = document.getElementById("password");
+      const loginButton = document.getElementById("login-button");
+      const errorMessage = document.getElementById("error-message");
+
+      function validateLoginForm() {
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (!username || !password) {
+          loginButton.disabled = true;
+        } else {
+          loginButton.disabled = false;
+        }
+      }
+
+      function resetPassword() {
+        const username = usernameInput.value.trim();
+
+        if (username) {
+          alert("Password reset link sent to " + username);
+        } else {
+          errorMessage.innerHTML = "Please enter your username";
+        }
+      }
+
+      usernameInput.addEventListener("input", validateLoginForm);
+      passwordInput.addEventListener("input", validateLoginForm);
+
+      document.querySelector("form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (username === "pavan" && password === "miracle") {
+          // Login successful
+          alert("Login successful");
+        } else {
+          // Login failed
+          alert("Invalid username or password");
+        }
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
